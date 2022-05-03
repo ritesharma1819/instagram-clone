@@ -1,6 +1,7 @@
 .post{
    max-width: 500px;
    border: 1px solid lightgray;
+   margin-bottom: 40px;
 }
 
 .post__username{
