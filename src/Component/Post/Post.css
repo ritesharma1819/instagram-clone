@@ -1,0 +1,17 @@
+.post{
+   max-width: 500px;
+   border: 1px solid lightgray;
+}
+
+.post__username{
+    padding: 10px;
+}
+
+.post__img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.post__caption{
+    padding: 10px;
+}
