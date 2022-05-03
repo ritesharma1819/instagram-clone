@@ -1,15 +1,15 @@
 import React from 'react'
 import './Post.css';
 
-function Post() {
+function Post({userName, imageUrl, caption}) {
   return (
     <div className='post'>
-        <h4 className='post__username'>Username</h4>
+        <h4 className='post__username'>{userName}</h4>
         <img className='post__img'
-            src='https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg' 
+            src={imageUrl} 
             alt='post' 
         />
-        <p className='post__caption'><strong>Caption:  </strong>Hey there i am making instagram clone!</p>
+        <p className='post__caption'><strong>{userName}:  </strong>{caption}</p>
     </div>
   )
 }
