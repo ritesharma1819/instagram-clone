@@ -9,7 +9,10 @@ function App() {
 
 useEffect(()=>{
       db.collection("posts").onSnapshot(snapshot=>{
-        setPosts(snapshot.docs.map(doc=>doc.data()))
+        setPosts(snapshot.docs.map(doc=>({
+          id: doc.id,
+          post: doc.data()
+        })))
       })
 })
 
@@ -17,8 +20,8 @@ useEffect(()=>{
     <div className="App">
       <Header />
       {
-        posts.map((post,i)=>(
-          <Post key={i} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
+        posts.map(({post,id})=>(
+          <Post key={id} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
         ))
       }
     </div>
