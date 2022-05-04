@@ -1,7 +1,9 @@
-import firebase from 'firebase';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
-
-const firebaseApp = firebase.initializeApp({
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
     apiKey: "AIzaSyDKpUZS1Oc9gaj5glZDkn85VWUXxmFoCfo",
     authDomain: "instagram-clone-eb68c.firebaseapp.com",
     projectId: "instagram-clone-eb68c",
@@ -9,10 +11,11 @@ const firebaseApp = firebase.initializeApp({
     messagingSenderId: "769064192327",
     appId: "1:769064192327:web:c115b2c1c89a39c6006462",
     measurementId: "G-LYPW305Q1W"
-  });
+  };
 
-  const db= firebase.firestore();
-  const auth=firebase.auth();
-  const storage= firebase.storage();
+  firebase.initializeApp(firebaseConfig);
+  const db= firebase.firestore()
+  const auth= firebase.auth()
 
-  export{db, auth, storage};
+  
+  export {db, auth};
