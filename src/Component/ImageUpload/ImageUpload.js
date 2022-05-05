@@ -55,7 +55,7 @@ function ImageUpload() {
             <div style={{width: '50%', display: 'flex' , flexDirection: 'column', alignItems: 'center' , marginTop: '20px' , marginBottom: '50px' , border: '1px solid ' , marginLeft: 'auto' , marginRight: 'auto', gap: '2px'}}>
                 <h3>Upload File</h3>
                 <progress value={progress} max='100'/>
-                <input type='text' placeholder='write caption here...' value={caption} onChange={(e)=>setCaption(e.target.value)}/>
+                <input style={{padding: '5px', width: '30%', borderRadius: '5px' , fontSize: 'larger'}} type='text' placeholder='write caption here...' value={caption} onChange={(e)=>setCaption(e.target.value)}/>
                 <input type='file' onChange={handleChange}/>
                 <button type='submit' onClick={handleUpload}>Upload</button>
             </div>
