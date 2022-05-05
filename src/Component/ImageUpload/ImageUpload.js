@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import { db, storage } from '../../firebase';
+import { width } from '@mui/system';
 
 function ImageUpload() {
    const [caption, setCaption]= useState('')
@@ -51,10 +52,12 @@ function ImageUpload() {
   return (
     <div>
         <form>
-            <progress value={progress} max='100'/>
-            <input type='text' placeholder='write caption here...' value={caption} onChange={(e)=>setCaption(e.target.value)}/>
-            <input type='file' onChange={handleChange}/>
-            <button type='submit' onClick={handleUpload}>Upload</button>
+            <div style={{width: '30%', display: 'flex' , flexDirection: 'column', alignItems: 'center' , marginTop: '20px' , marginBottom: '50px' , border: '1px solid lightgray' , marginLeft: 'auto' , marginRight: 'auto'}}>
+                <progress value={progress} max='100'/>
+                <input type='text' placeholder='write caption here...' value={caption} onChange={(e)=>setCaption(e.target.value)}/>
+                <input type='file' onChange={handleChange}/>
+                <button type='submit' onClick={handleUpload}>Upload</button>
+            </div>
         </form>
     </div>
   )
