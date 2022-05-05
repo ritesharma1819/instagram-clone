@@ -52,7 +52,8 @@ function ImageUpload() {
   return (
     <div>
         <form>
-            <div style={{width: '30%', display: 'flex' , flexDirection: 'column', alignItems: 'center' , marginTop: '20px' , marginBottom: '50px' , border: '1px solid lightgray' , marginLeft: 'auto' , marginRight: 'auto'}}>
+            <div style={{width: '50%', display: 'flex' , flexDirection: 'column', alignItems: 'center' , marginTop: '20px' , marginBottom: '50px' , border: '1px solid ' , marginLeft: 'auto' , marginRight: 'auto', gap: '2px'}}>
+                <h3>Upload File</h3>
                 <progress value={progress} max='100'/>
                 <input type='text' placeholder='write caption here...' value={caption} onChange={(e)=>setCaption(e.target.value)}/>
                 <input type='file' onChange={handleChange}/>
