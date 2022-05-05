@@ -2,7 +2,8 @@ import React,{useState ,useEffect} from 'react';
 import './App.css';
 import Header from './Component/Header/Header';
 import Post from './Component/Post/Post';
-import {db} from './firebase'
+import {db} from './firebase';
+import ImageUpload from './Component/ImageUpload/ImageUpload'
 
 function App() {
   const [posts, setPosts]=useState([])
@@ -19,6 +20,7 @@ useEffect(()=>{
   return (
     <div className="App">
       <Header />
+      <ImageUpload />
       {
         posts.map(({post,id})=>(
           <Post key={id} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
