@@ -1,6 +1,6 @@
  import React from 'react'
  
- function SignIn() {
+ function SignIn({isRouteChange}) {
    return (
      <div>
          <form>
@@ -21,7 +21,10 @@
                 />                                                  
                 <input style={{ padding: '5px', width: '200px'}} type='email' placeholder='Email' />
                 <input style={{padding: '5px', width: '200px', marginBottom: '5px'}} type='password' placeholder='password' />
-                <button style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white'}}>Sign In</button>
+                <button 
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white'}}
+                    onClick={()=>{isRouteChange('home')}}
+                >Sign In</button>
                 <button style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}>Sign Up</button>
              </div>
          </form>
