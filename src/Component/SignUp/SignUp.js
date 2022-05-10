@@ -1,9 +1,15 @@
-import React from 'react'
+import React from 'react';
+import {useForm} from 'react-hook-form';
 
 function SignUp({isRouteChangeForSignIn}) {
+    const {register, handleSubmit}= useForm()
+    const signUpForm=(data)=>{
+        console.log(data);
+        isRouteChangeForSignIn('signInPage')
+    }
   return (
     <div>
-        <form>
+        <form onSubmit={handleSubmit(signUpForm)}>
              <div style={{display: 'flex' , 
                 flexDirection: 'column', 
                 alignItems: 'center' ,
@@ -20,12 +26,25 @@ function SignUp({isRouteChangeForSignIn}) {
                     width='200px'
                     style={{marginTop: '50px', marginBottom: '30px'}}
                 />                                                  
-                <input style={{ padding: '5px', width: '200px'}} type='text' placeholder='Username' />
-                <input style={{ padding: '5px', width: '200px'}} type='email' placeholder='Email' />
-                <input style={{padding: '5px', width: '200px', marginBottom: '5px'}} type='password' placeholder='password' />
+                <input 
+                    style={{ padding: '5px', width: '200px'}} 
+                    type='text' 
+                    placeholder='Username' 
+                    {...register('username', {required: true, minLength: 4 , maxLength: '15'})}
+                />
+                <input 
+                    style={{ padding: '5px', width: '200px'}} 
+                    type='email' placeholder='Email'
+                    {...register('email', {required: true , pattern:/(?![.-])((?![.-][.-])[a-zA-Z\d.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}/ })}
+                />
+                <input style={{padding: '5px', width: '200px', marginBottom: '5px'}} 
+                type='password' 
+                placeholder='password' 
+                {...register('password', {required: true , pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/, minLength: 6 , maxLength: 16})}
+            />
                 <button 
+                    type='submit' 
                     style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white' , marginBottom: '50px'}}
-                    onClick={()=>{isRouteChangeForSignIn('signInPage')}}
                 >Sign Up</button>
              </div>
          </form>
