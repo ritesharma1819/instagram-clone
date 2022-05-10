@@ -10,6 +10,7 @@ import ImageUpload from './Component/ImageUpload/ImageUpload';
 function App() {
   const [posts, setPosts]=useState([])
   const [route, setRoute]=useState('signIn')
+  const [routeForSignIn, setRouteForSignIn]=useState('signInPage')
 
 useEffect(()=>{
       db.collection("posts").onSnapshot(snapshot=>{
@@ -24,12 +25,16 @@ const isRouteChange=(route)=>{
   setRoute(route);
 }
 
+const isRouteChangeForSingIn=(routeForSignIn)=>{
+  setRouteForSignIn(routeForSignIn);
+}
+
   return (
     <div className="App">
      { route==='signIn'?
      <div>
         <SignIn isRouteChange={isRouteChange}/>
-        <SignUp />
+        <SignUp isRouteChangeForSingIn={isRouteChangeForSingIn}/>
       </div> :
       <div>
         <Header />
