@@ -8,6 +8,7 @@ import ImageUpload from './Component/ImageUpload/ImageUpload';
 
 function App() {
   const [posts, setPosts]=useState([])
+  const [route, setRoute]=useState('signIn')
 
 useEffect(()=>{
       db.collection("posts").onSnapshot(snapshot=>{
@@ -18,15 +19,23 @@ useEffect(()=>{
       })
 })
 
+const isRouteChange=(route)=>{
+  setRoute(route);
+}
+
   return (
     <div className="App">
-      <SignIn />
-      <Header />
-      <ImageUpload />
-      {
-        posts.map(({post,id})=>(
-          <Post key={id} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
-        ))
+     { route==='signIn'?
+      <SignIn isRouteChange={isRouteChange}/> :
+      <div>
+        <Header />
+        <ImageUpload />
+        {
+          posts.map(({post,id})=>(
+            <Post key={id} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
+          ))
+        }
+      </div>
       }
     </div>
   );
