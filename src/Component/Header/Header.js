@@ -8,7 +8,7 @@ function Header() {
             alt='logo'
             width='200px'
          />
-        <h4>Sign Out</h4>
+        <button style={{backgroundColor: 'white', borderColor: 'white' , borderWidth: '0', cursor: 'pointer' }}>Sign Out</button>
     </div>
   )
 }
