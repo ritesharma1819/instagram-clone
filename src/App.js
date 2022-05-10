@@ -1,6 +1,7 @@
 import React,{useState ,useEffect} from 'react';
 import './App.css';
 import SignIn from './Component/SignIn/SignIn';
+import SignUp from './Component/SignUp/SignUp';
 import Header from './Component/Header/Header';
 import Post from './Component/Post/Post';
 import {db} from './firebase';
@@ -26,7 +27,10 @@ const isRouteChange=(route)=>{
   return (
     <div className="App">
      { route==='signIn'?
-      <SignIn isRouteChange={isRouteChange}/> :
+     <div>
+        <SignIn isRouteChange={isRouteChange}/>
+        <SignUp />
+      </div> :
       <div>
         <Header />
         <ImageUpload />
