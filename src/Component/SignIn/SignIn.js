@@ -1,6 +1,6 @@
  import React from 'react'
  
- function SignIn({isRouteChange}) {
+ function SignIn({isRouteChange, isRouteChangeForSignIn}) {
    return (
      <div>
          <form>
@@ -27,7 +27,10 @@
                     onClick={()=>{isRouteChange('home')}}
                 >Sign In</button>
                 <p style={{fontWeight: 'lighter', fontSize: '15px'}}>Don't have an account?</p>
-                <button style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}>Sign Up</button>
+                <button 
+                style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}
+                onClick={()=>{isRouteChangeForSignIn('signUpPage')}}
+                >Sign Up</button>
              </div>
          </form>
      </div>

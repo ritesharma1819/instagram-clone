@@ -33,7 +33,7 @@ const isRouteChangeForSingIn=(routeForSignIn)=>{
     <div className="App">
      { route==='signIn'?
      <div>
-        <SignIn isRouteChange={isRouteChange}/>
+        <SignIn isRouteChange={isRouteChange} isRouteChangeForSingIn={isRouteChangeForSingIn}/>
         <SignUp isRouteChangeForSingIn={isRouteChangeForSingIn}/>
       </div> :
       <div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SignUp() {
+function SignUp({isRouteChangeForSignIn}) {
   return (
     <div>
         <form>
@@ -25,6 +25,7 @@ function SignUp() {
                 <input style={{padding: '5px', width: '200px', marginBottom: '5px'}} type='password' placeholder='password' />
                 <button 
                     style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white'}}
+                    onClick={()=>{isRouteChangeForSignIn('signInPage')}}
                 >Sign Up</button>
              </div>
          </form>
