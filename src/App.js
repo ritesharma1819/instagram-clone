@@ -25,16 +25,17 @@ const isRouteChange=(route)=>{
   setRoute(route);
 }
 
-const isRouteChangeForSingIn=(routeForSignIn)=>{
+const isRouteChangeForSignIn=(routeForSignIn)=>{
   setRouteForSignIn(routeForSignIn);
 }
 
   return (
     <div className="App">
      { route==='signIn'?
-     <div>
-        <SignIn isRouteChange={isRouteChange} isRouteChangeForSingIn={isRouteChangeForSingIn}/>
-        <SignUp isRouteChangeForSingIn={isRouteChangeForSingIn}/>
+     <div>{ routeForSignIn==='signInPage' ?
+        <SignIn isRouteChange={isRouteChange} isRouteChangeForSignIn={isRouteChangeForSignIn}/> :
+        <SignUp isRouteChangeForSignIn={isRouteChangeForSignIn}/>
+     }
       </div> :
       <div>
         <Header />
