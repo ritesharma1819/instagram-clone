@@ -1,9 +1,10 @@
 import React,{useState ,useEffect} from 'react';
 import './App.css';
+import SignIn from './Component/SignIn/SignIn';
 import Header from './Component/Header/Header';
 import Post from './Component/Post/Post';
 import {db} from './firebase';
-import ImageUpload from './Component/ImageUpload/ImageUpload'
+import ImageUpload from './Component/ImageUpload/ImageUpload';
 
 function App() {
   const [posts, setPosts]=useState([])
@@ -19,6 +20,7 @@ useEffect(()=>{
 
   return (
     <div className="App">
+      <SignIn />
       <Header />
       <ImageUpload />
       {
