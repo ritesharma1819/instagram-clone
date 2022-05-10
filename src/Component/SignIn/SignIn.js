@@ -6,7 +6,8 @@
          <form>
              <div style={{display: 'flex' , 
                 flexDirection: 'column', 
-                alignItems: 'center' , 
+                alignItems: 'center' ,
+                marginTop: '100px',
                 border: '1px solid lightgray' , 
                 width: '300px',
                 marginLeft: 'auto',
@@ -25,6 +26,7 @@
                     style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white'}}
                     onClick={()=>{isRouteChange('home')}}
                 >Sign In</button>
+                <p style={{fontWeight: 'lighter', fontSize: '15px'}}>Don't have an account?</p>
                 <button style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}>Sign Up</button>
              </div>
          </form>
