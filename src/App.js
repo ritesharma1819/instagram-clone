@@ -38,7 +38,7 @@ const isRouteChangeForSignIn=(routeForSignIn)=>{
      }
       </div> :
       <div>
-        <Header />
+        <Header isRouteChange={isRouteChange}/>
         <ImageUpload />
         {
           posts.map(({post,id})=>(

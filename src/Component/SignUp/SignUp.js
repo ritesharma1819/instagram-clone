@@ -24,7 +24,7 @@ function SignUp({isRouteChangeForSignIn}) {
                 <input style={{ padding: '5px', width: '200px'}} type='email' placeholder='Email' />
                 <input style={{padding: '5px', width: '200px', marginBottom: '5px'}} type='password' placeholder='password' />
                 <button 
-                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white'}}
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white' , marginBottom: '50px'}}
                     onClick={()=>{isRouteChangeForSignIn('signInPage')}}
                 >Sign Up</button>
              </div>

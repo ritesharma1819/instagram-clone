@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header() {
+function Header({isRouteChange}) {
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between' , backgroundColor: 'white' , borderBottom: '1px solid lightGray'}}>
         <img 
@@ -8,7 +8,10 @@ function Header() {
             alt='logo'
             width='200px'
          />
-        <button style={{backgroundColor: 'white', borderColor: 'white' , borderWidth: '0', cursor: 'pointer' }}>Sign Out</button>
+        <button 
+          style={{backgroundColor: 'white', borderColor: 'white' , borderWidth: '0', cursor: 'pointer' }}
+          onClick={()=>{isRouteChange('signIn')}}
+        >Sign Out</button>
     </div>
   )
 }
