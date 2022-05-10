@@ -44,8 +44,13 @@ function SignUp({isRouteChangeForSignIn}) {
             />
                 <button 
                     type='submit' 
-                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white' , marginBottom: '50px'}}
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white' }}
                 >Sign Up</button>
+                <p style={{fontWeight: 'lighter', fontSize: '15px'}}>Already have an account?</p>
+                <button 
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}
+                    onClick={()=>{isRouteChangeForSignIn('signInPage')}}
+                >Sign In</button>
              </div>
          </form>
     </div>
