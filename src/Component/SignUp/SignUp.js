@@ -5,7 +5,7 @@ import { updateProfile } from "firebase/auth";
 
 
 
-function SignUp({isRouteChangeForSignIn , username}) {
+function SignUp({isRouteChangeForSignIn}) {
 
     const {register, handleSubmit}= useForm()
 
@@ -21,16 +21,12 @@ function SignUp({isRouteChangeForSignIn , username}) {
                 email: data.email,
                 password: data.password,
             })
+            isRouteChangeForSignIn('signInPage')
          } catch(error){
                  console.log(error)
                  alert(error.message)
              }
         
-        
-
-
-        console.log(data.email,data.password);
-        isRouteChangeForSignIn('signInPage')
     }
   return (
     <div>

@@ -1,13 +1,22 @@
  import React from 'react';
  import {useForm} from 'react-hook-form';
+import { auth } from '../../firebase';
  
  
  function SignIn({isRouteChange, isRouteChangeForSignIn}) {
+
      const {register, handleSubmit}= useForm()
-     const signInForm=(data,event)=>{
-         console.log(data);
+
+     const signInForm=async(data,event)=>{
          event.preventDefault();
-         isRouteChange('home')
+         try{
+             await auth.signInWithEmailAndPassword(data.email, data.password)
+             isRouteChange('home')
+         } catch(error){
+             console.log(error)
+             alert(error)
+         }
+
      }
    return (
      <div>
