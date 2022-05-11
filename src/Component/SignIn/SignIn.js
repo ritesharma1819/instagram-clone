@@ -1,10 +1,12 @@
  import React from 'react';
- import {useForm} from 'react-hook-form'
+ import {useForm} from 'react-hook-form';
+ 
  
  function SignIn({isRouteChange, isRouteChangeForSignIn}) {
      const {register, handleSubmit}= useForm()
-     const signInForm=(data)=>{
+     const signInForm=(data,event)=>{
          console.log(data);
+         event.preventDefault();
          isRouteChange('home')
      }
    return (
@@ -40,11 +42,11 @@
                 />
                 <button 
                     type='submit'
-                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white'}}
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', cursor: 'pointer'}}
                 >Sign In</button>
                 <p style={{fontWeight: 'lighter', fontSize: '15px'}}>Don't have an account?</p>
                 <button 
-                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px', cursor: 'pointer'}}
                     onClick={()=>{isRouteChangeForSignIn('signUpPage')}}
                 >Sign Up</button>
              </div>

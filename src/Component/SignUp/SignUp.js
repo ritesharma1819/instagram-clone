@@ -1,10 +1,35 @@
 import React from 'react';
 import {useForm} from 'react-hook-form';
+import {db,auth} from "../../firebase"
+import { updateProfile } from "firebase/auth"; 
 
-function SignUp({isRouteChangeForSignIn}) {
+
+
+function SignUp({isRouteChangeForSignIn , username}) {
+
     const {register, handleSubmit}= useForm()
-    const signUpForm=(data)=>{
-        console.log(data);
+
+    const signUpForm=async(data,event)=>{
+        event.preventDefault();
+        try{
+            
+            auth.createUserWithEmailAndPassword(data.email, data.password)
+            updateProfile(auth.currentUser, { displayName: data.username})
+            
+            await db.collection("Users").add({
+                username: data.username,
+                email: data.email,
+                password: data.password,
+            })
+         } catch(error){
+                 console.log(error)
+                 alert(error.message)
+             }
+        
+        
+
+
+        console.log(data.email,data.password);
         isRouteChangeForSignIn('signInPage')
     }
   return (
@@ -44,11 +69,11 @@ function SignUp({isRouteChangeForSignIn}) {
             />
                 <button 
                     type='submit' 
-                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white' }}
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', cursor: 'pointer' }}
                 >Sign Up</button>
                 <p style={{fontWeight: 'lighter', fontSize: '15px'}}>Already have an account?</p>
                 <button 
-                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px'}}
+                    style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px', cursor: 'pointer'}}
                     onClick={()=>{isRouteChangeForSignIn('signInPage')}}
                 >Sign In</button>
              </div>
