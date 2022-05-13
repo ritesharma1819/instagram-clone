@@ -11,23 +11,27 @@ function SignUp({isRouteChangeForSignIn}) {
 
     const signUpForm=async(data,event)=>{
         event.preventDefault();
-        try{
+        try {
             
-            auth.createUserWithEmailAndPassword(data.email, data.password)
-            updateProfile(auth.currentUser, { displayName: data.username})
-            
+            const res= await auth.createUserWithEmailAndPassword(data.email, data.password)
+            // updateProfile(auth.currentUser)
+
             await db.collection("Users").add({
+                uid:res.user.uid,
                 username: data.username,
                 email: data.email,
                 password: data.password,
             })
             isRouteChangeForSignIn('signInPage')
-         } catch(error){
+         } 
+         catch(error){
                  console.log(error)
                  alert(error.message)
              }
         
-    }
+     }
+
+
   return (
     <div>
         <form onSubmit={handleSubmit(signUpForm)}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import { db, storage } from '../../firebase';
 
+
 function ImageUpload() {
    const [caption, setCaption]= useState('')
    const [image, setImage]= useState(null)
@@ -47,6 +48,9 @@ function ImageUpload() {
            }
        )
    }
+
+  
+   
 
   return (
     <div>

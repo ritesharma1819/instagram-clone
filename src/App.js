@@ -19,7 +19,7 @@ useEffect(()=>{
           post: doc.data()
         })))
       })
-})
+},[])
 
 const isRouteChange=(route)=>{
   setRoute(route);

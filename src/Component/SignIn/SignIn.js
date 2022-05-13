@@ -10,13 +10,13 @@ import { auth } from '../../firebase';
      const signInForm=async(data,event)=>{
          event.preventDefault();
          try{
-             await auth.signInWithEmailAndPassword(data.email, data.password)
+            const res= await auth.signInWithEmailAndPassword(data.email, data.password)
+            // console.log(res)
              isRouteChange('home')
          } catch(error){
              console.log(error)
              alert(error)
          }
-
      }
    return (
      <div>
