@@ -1,6 +1,8 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
-function Header({isRouteChange}) {
+function Header() {
+  const navigate=useNavigate();
   return (
     <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between' , backgroundColor: 'white' , borderBottom: '1px solid lightGray'}}>
         <img 
@@ -10,7 +12,7 @@ function Header({isRouteChange}) {
          />
         <button 
           style={{backgroundColor: 'white', borderColor: 'white' , borderWidth: '0', cursor: 'pointer' }}
-          onClick={()=>{isRouteChange('signIn')}}
+          onClick={()=>{navigate('/')}}
         >Sign Out</button>
     </div>
   )

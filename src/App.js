@@ -1,4 +1,5 @@
 import React,{useState ,useEffect} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css';
 import SignIn from './Component/SignIn/SignIn';
 import SignUp from './Component/SignUp/SignUp';
@@ -8,10 +9,9 @@ import {db} from './firebase';
 import ImageUpload from './Component/ImageUpload/ImageUpload';
 
 function App() {
+  
   const [posts, setPosts]=useState([])
-  const [route, setRoute]=useState('signIn')
-  const [routeForSignIn, setRouteForSignIn]=useState('signInPage')
-
+ 
 useEffect(()=>{
       db.collection("posts").onSnapshot(snapshot=>{
         setPosts(snapshot.docs.map(doc=>({
@@ -21,32 +21,27 @@ useEffect(()=>{
       })
 },[])
 
-const isRouteChange=(route)=>{
-  setRoute(route);
-}
 
-const isRouteChangeForSignIn=(routeForSignIn)=>{
-  setRouteForSignIn(routeForSignIn);
-}
 
   return (
     <div className="App">
-     { route==='signIn'?
-     <div>{ routeForSignIn==='signInPage' ?
-        <SignIn isRouteChange={isRouteChange} isRouteChangeForSignIn={isRouteChangeForSignIn}/> :
-        <SignUp isRouteChangeForSignIn={isRouteChangeForSignIn}/>
-     }
-      </div> :
-      <div>
-        <Header isRouteChange={isRouteChange}/>
-        <ImageUpload />
-        {
-          posts.map(({post,id})=>(
-            <Post key={id} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
-          ))
-        }
-      </div>
-      }
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<SignIn /> } />
+        <Route path='signup' element={<SignUp /> } />
+        <Route path='post' element={<div>
+              <Header />
+              <ImageUpload />
+              {
+                posts.map(({post,id})=>(
+                  <Post key={id} userName={post.userName} imageUrl={post.imageUrl} caption={post.caption} />
+                ))
+              }
+            </div>} />
+      </Routes>
+      </BrowserRouter>
+     
+
     </div>
   );
 }

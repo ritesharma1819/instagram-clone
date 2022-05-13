@@ -1,10 +1,12 @@
- import React from 'react';
- import {useForm} from 'react-hook-form';
+import React from 'react';
+import {useNavigate} from 'react-router-dom'
+import {useForm} from 'react-hook-form';
 import { auth } from '../../firebase';
  
  
- function SignIn({isRouteChange, isRouteChangeForSignIn}) {
+ function SignIn() {
 
+     const navigate=useNavigate();
      const {register, handleSubmit}= useForm()
 
      const signInForm=async(data,event)=>{
@@ -12,7 +14,8 @@ import { auth } from '../../firebase';
          try{
             const res= await auth.signInWithEmailAndPassword(data.email, data.password)
             // console.log(res)
-             isRouteChange('home')
+            navigate('post');
+             
          } catch(error){
              console.log(error)
              alert(error)
@@ -56,7 +59,7 @@ import { auth } from '../../firebase';
                 <p style={{fontWeight: 'lighter', fontSize: '15px'}}>Don't have an account?</p>
                 <button 
                     style={{ padding: '5px', width: '215px', backgroundColor: '#5851DB' , color:'white', marginBottom: '50px', cursor: 'pointer'}}
-                    onClick={()=>{isRouteChangeForSignIn('signUpPage')}}
+                    onClick={()=>{navigate('signup')}}
                 >Sign Up</button>
              </div>
          </form>
