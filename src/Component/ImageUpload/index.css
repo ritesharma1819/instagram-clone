@@ -1,0 +1,26 @@
+.imageUpload {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2px;
+}
+
+.imageUpload_caption {
+  padding: 5px;
+  width: 30%;
+  border-radius: 5px;
+  font-size: large;
+}
+
+.imageUpload_upload {
+  margin-bottom: 10px;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+}

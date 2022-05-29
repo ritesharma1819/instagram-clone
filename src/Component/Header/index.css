@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+
+.header_button {
+  background-color: white;
+  border-color: white;
+  border-width: 0;
+  cursor: pointer;
+}
